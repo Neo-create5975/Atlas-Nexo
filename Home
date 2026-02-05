@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Nexo</title>
+  <meta name="description" content="Atlas Nexo — Onde o conhecimento se conecta. Ciência, educação e cultura com curadoria e trilhas de estudo." />
+
+  <style>
+    :root{
+      --bg: #fbfbf7;
+      --paper: #ffffff;
+      --ink: #101414;
+      --muted: #4c5a5a;
+      --line: #e7ece8;
+
+      --brand: #0b6b64;
+      --brand-2: #2a7f77;
+
+      --shadow: 0 18px 40px rgba(16, 20, 20, .08);
+      --radius: 18px;
+
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 500px at 50% -10%, rgba(11, 107, 100, .12), transparent 60%),
+        radial-gradient(900px 450px at 15% 10%, rgba(42, 127, 119, .10), transparent 55%),
+        radial-gradient(900px 450px at 85% 12%, rgba(11, 107, 100, .08), transparent 55%),
+        var(--bg);
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: 1120px; margin: 0 auto; padding: 22px 18px 70px; }
+
+    .topbar{
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(251, 251, 247, .72);
+      border-bottom: 1px solid rgba(231,236,232,.85);
+    }
+    .topbar .inner{
+      max-width: 1120px; margin: 0 auto; padding: 12px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:baseline; gap: 10px;
+      letter-spacing: .2px;
+    }
+    .brand .name{
+      font-weight: 720;
+      font-size: 18px;
+    }
+    .brand .tag{
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    nav{ display:flex; gap: 14px; align-items:center; flex-wrap: wrap; }
+    nav a{
+      font-size: 13.5px;
+      color: #182020;
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    nav a:hover{
+      background: rgba(11,107,100,.08);
+      text-decoration: none;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,107,100,.22);
+      background: rgba(255,255,255,.9);
+      font-size: 13.5px;
+      font-weight: 650;
+      color: #0c3b38;
+      text-decoration: none;
+    }
+    .btn:hover{ background: #ffffff; box-shadow: 0 10px 18px rgba(16,20,20,.06); text-decoration:none; }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(11,107,100,1), rgba(42,127,119,1));
+      color: #fff;
+      border: 0;
+    }
+    .btn.primary:hover{ filter: brightness(1.02); }
+
+    .hero{
+      margin-top: 24px;
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(231,236,232,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main{ padding: 26px 22px; }
+    .kicker{
+      display:inline-flex; gap: 10px; align-items:center;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(11,107,100,.08);
+      border: 1px solid rgba(11,107,100,.14);
+      color: #124844;
+      font-size: 12.5px;
+      font-weight: 650;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing: -0.3px;
+      line-height: 1.08;
+      font-size: 44px;
+    }
+    @media (max-width: 520px){
+      h1{ font-size: 36px; }
+    }
+
+    .lead{
+      margin: 0 0 18px;
+      color: #263131;
+      font-size: 16.5px;
+      line-height: 1.55;
+      max-width: 62ch;
+    }
+
+    .hero-actions{ display:flex; gap: 10px; flex-wrap: wrap; align-items:center; }
+    .small-note{ color: var(--muted); font-size: 13px; margin-top: 10px; }
+
+    .hero-side{ padding: 18px; display:flex; flex-direction: column; gap: 12px; }
+    .side-block{ padding: 14px; border-radius: 16px; border: 1px solid var(--line); background: rgba(251,251,247,.6); }
+    .side-title{ font-weight: 700; font-size: 13.5px; margin: 0 0 6px; color: #14302e; }
+    .side-text{ margin:0; font-size: 13.5px; line-height: 1.5; color: #2e3c3c; }
+
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .col-7{ grid-column: span 7; }
+    .col-5{ grid-column: span 5; }
+    .col-6{ grid-column: span 6; }
+    .col-12{ grid-column: span 12; }
+
+    @media (max-width: 900px){
+      .col-7,.col-5,.col-6{ grid-column: span 12; }
+    }
+
+    .section{ padding: 18px 18px; }
+    .section h2{
+      margin: 0 0 6px;
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      font-size: 22px;
+    }
+    .section p{ margin: 0 0 10px; color: var(--muted); line-height: 1.55; }
+
+    .list{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .item{
+      padding: 12px 12px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.92);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 10px;
+    }
+    .item strong{ display:block; margin-bottom: 3px; font-size: 14.5px; }
+    .item span{ color: var(--muted); font-size: 13.5px; line-height: 1.45; }
+
+    .pill{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid rgba(11,107,100,.18);
+      background: rgba(11,107,100,.08);
+      color: #124844;
+      white-space: nowrap;
+    }
+
+    footer{
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 18px 2px 0;
+      border-top: 1px solid rgba(231,236,232,.9);
+    }
+    footer a{ color: #0b6b64; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <div class="name">Atlas Nexo</div>
+        <div class="tag">Verificado. Ciência. Educação.</div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="atlas_nexo_artigos_index.html">Artigos</a>
+        <a href="atlas_nexo_biblioteca_ciencia.html">Biblioteca</a>
+        <a href="nexo_trilhas_estudo.html">Trilhas</a>
+        <a href="nexo_planos_v3_apoio_global.html">Planos</a>
+        <a href="atlas_nexo_institucional.html">Institucional</a>
+        <a class="btn primary" href="nexo_envie_artigo_v3.html">Enviar artigo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card hero-main">
+        <div class="kicker">Onde o conhecimento se conecta</div>
+        <h1>Ciência e educação com curadoria, trilhas e leitura agradável.</h1>
+        <p class="lead">
+          O Atlas Nexo nasce na América Latina e mira o mundo: conteúdos organizados por tema,
+          experiência de leitura refinada e caminhos de estudo do básico ao avançado.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="atlas_nexo_artigos_index.html">Explorar artigos</a>
+          <a class="btn" href="nexo_trilhas_estudo.html">Ver trilhas</a>
+          <a class="btn" href="nexo_planos_v3_apoio_global.html">Conhecer planos</a>
+          <a class="btn" href="atlas_nexo_institucional.html">Quem somos</a>
+        </div>
+
+        <div class="small-note">
+          Dica: se você está no GitHub, mantenha o arquivo da Home como <strong>index.html</strong> na raiz do repositório.
+        </div>
+      </div>
+
+      <aside class="card hero-side">
+        <div class="side-block">
+          <p class="side-title">Em destaque</p>
+          <p class="side-text">Seleções semanais por relevância e qualidade editorial.</p>
+        </div>
+
+        <div class="side-block">
+          <p class="side-title">Leitura limpa</p>
+          <p class="side-text">Tipografia com respiro, blocos bem marcados e foco em clareza.</p>
+        </div>
+
+        <div class="side-block">
+          <p class="side-title">Para escolas</p>
+          <p class="side-text">Modo escola em quizes e ferramentas para professores aplicarem em turmas.</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid">
+      <div class="card section col-7">
+        <h2>Comece por aqui</h2>
+        <p>Três portas de entrada para o portal. Você pode ajustar os links depois.</p>
+
+        <ul class="list">
+          <li class="item">
+            <div>
+              <strong>Ciência da América Latina</strong>
+              <span>Curadoria inicial com foco regional e ponte para o público global.</span>
+            </div>
+            <span class="pill"><a href="atlas_nexo_ciencia_index_latam_v6_linkado_biblioteca.html">Abrir</a></span>
+          </li>
+
+          <li class="item">
+            <div>
+              <strong>Trilhas e estudos</strong>
+              <span>Rotas de aprendizado por objetivo, com exercícios e simulados.</span>
+            </div>
+            <span class="pill"><a href="nexo_trilhas_estudo.html">Abrir</a></span>
+          </li>
+
+          <li class="item">
+            <div>
+              <strong>Planos e acesso</strong>
+              <span>Limites no free e acesso completo nos planos superiores.</span>
+            </div>
+            <span class="pill"><a href="nexo_planos_v3_apoio_global.html">Abrir</a></span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card section col-5">
+        <h2>Atualizações rápidas</h2>
+        <p>Itens que normalmente vêm logo após o lançamento.</p>
+
+        <ul class="list">
+          <li class="item">
+            <div>
+              <strong>Página legal</strong>
+              <span>Termos, Privacidade e Cookies.</span>
+            </div>
+            <span class="pill"><a href="atlas_nexo_institucional.html">Ver</a></span>
+          </li>
+
+          <li class="item">
+            <div>
+              <strong>Contato institucional</strong>
+              <span>Formulário e e-mail para parceria e imprensa.</span>
+            </div>
+            <span class="pill"><a href="atlas_nexo_institucional.html#contato">Abrir</a></span>
+          </li>
+
+          <li class="item">
+            <div>
+              <strong>Publicação</strong>
+              <span>Fluxo de envio e revisão editorial antes de publicar.</span>
+            </div>
+            <span class="pill"><a href="nexo_envie_artigo_v3.html">Abrir</a></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <div><strong>Atlas Nexo</strong> — Ciência e Educação. <a href="atlas_nexo_institucional.html">Institucional</a></div>
+      <div style="margin-top:6px;">Versão estática para lançamento. Evolução com base e autenticação pode vir depois.</div>
+    </footer>
+  </main>
+</body>
+</html>
