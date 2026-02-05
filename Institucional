@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Nexo — Institucional</title>
+  <meta name="description" content="Institucional do Atlas Nexo: propósito, origem, princípios editoriais, contato e transparência." />
+
+  <style>
+    :root{
+      --bg: #fbfbf7;
+      --paper: #ffffff;
+      --ink: #0f1414;
+      --muted: #4c5a5a;
+      --line: #e7ece8;
+
+      --brand: #0b6b64;
+      --brand-2: #2a7f77;
+
+      --radius: 18px;
+      --shadow: 0 18px 40px rgba(16, 20, 20, .08);
+
+      --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+      --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Helvetica Neue", "Noto Sans", "Liberation Sans", sans-serif;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 550px at 55% -10%, rgba(11,107,100,.13), transparent 60%),
+        radial-gradient(900px 520px at 10% 15%, rgba(42,127,119,.10), transparent 58%),
+        radial-gradient(900px 520px at 90% 18%, rgba(11,107,100,.08), transparent 58%),
+        var(--bg);
+    }
+
+    a{ color: #0b6b64; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .top{
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(251, 251, 247, .72);
+      border-bottom: 1px solid rgba(231,236,232,.9);
+    }
+    .top .inner{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand{
+      display:flex; align-items:baseline; gap: 10px;
+    }
+    .brand strong{ font-size: 16px; font-weight: 760; color: #13201f; }
+    .brand span{ font-size: 12.5px; color: var(--muted); }
+
+    .nav{ display:flex; gap: 10px; flex-wrap: wrap; }
+    .nav a{
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: #182020;
+      font-size: 13.5px;
+    }
+    .nav a:hover{
+      background: rgba(11,107,100,.08);
+      text-decoration: none;
+    }
+
+    .wrap{ max-width: 980px; margin: 0 auto; padding: 28px 16px 70px; }
+
+    .hero{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(231,236,232,.95);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 22px;
+    }
+    .kicker{
+      display:inline-flex;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(11,107,100,.08);
+      border: 1px solid rgba(11,107,100,.14);
+      color: #124844;
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+    h1{
+      margin: 12px 0 8px;
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing: -0.25px;
+      font-size: 40px;
+      line-height: 1.1;
+    }
+    .lead{
+      margin: 0;
+      color: #253131;
+      font-size: 16.5px;
+      line-height: 1.6;
+      max-width: 70ch;
+    }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(231,236,232,.95);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 24px rgba(16,20,20,.06);
+      padding: 18px 18px;
+    }
+
+    .col-7{ grid-column: span 7; }
+    .col-5{ grid-column: span 5; }
+    .col-12{ grid-column: span 12; }
+
+    @media (max-width: 900px){
+      .col-7,.col-5{ grid-column: span 12; }
+      h1{ font-size: 34px; }
+    }
+
+    h2{
+      margin: 0 0 8px;
+      font-family: var(--serif);
+      font-weight: 650;
+      letter-spacing: -0.2px;
+      font-size: 22px;
+    }
+    p{ margin: 0 0 10px; color: #2b3a3a; line-height: 1.6; }
+    .muted{ color: var(--muted); }
+
+    ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #2b3a3a;
+      line-height: 1.65;
+    }
+
+    .hr{
+      height: 1px;
+      background: rgba(231,236,232,.95);
+      margin: 14px 0;
+    }
+
+    .callout{
+      border: 1px solid rgba(11,107,100,.16);
+      background: rgba(11,107,100,.06);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .small{
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .footer{
+      margin-top: 18px;
+      border-top: 1px solid rgba(231,236,232,.9);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,107,100,.22);
+      background: rgba(255,255,255,.95);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0c3b38;
+      text-decoration: none;
+    }
+    .btn:hover{ text-decoration: none; box-shadow: 0 10px 18px rgba(16,20,20,.06); }
+
+  </style>
+</head>
+
+<body>
+  <header class="top">
+    <div class="inner">
+      <div class="brand">
+        <strong>Atlas Nexo</strong>
+        <span>Institucional</span>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="atlas_nexo_artigos_index.html">Artigos</a>
+        <a href="nexo_planos_v3_apoio_global.html">Planos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="kicker">Onde o conhecimento se conecta</div>
+      <h1>Um portal nascido na América Latina, com padrão editorial e visão global.</h1>
+      <p class="lead">
+        O Atlas Nexo organiza ciência, educação e cultura em uma experiência de leitura limpa,
+        com trilhas de estudo e ferramentas para estudantes, professores e leitores curiosos.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card col-7">
+        <h2>Propósito</h2>
+        <p>
+          Fortalecer o acesso ao conhecimento bem apresentado, bem contextualizado e com
+          compromisso de clareza: separar fato, hipótese e incerteza, e apontar limites e fontes quando aplicável.
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>O que o Atlas Nexo é</h2>
+        <ul>
+          <li>Uma iniciativa educacional e editorial em formação.</li>
+          <li>Um portal de curadoria e organização do conteúdo por temas e trilhas.</li>
+          <li>Uma base com expansão contínua (fundamental, médio, idiomas, concursos e ciência).</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>Princípios editoriais</h2>
+        <ul>
+          <li>Clareza acima de complexidade desnecessária.</li>
+          <li>Transparência sobre limitações e incertezas.</li>
+          <li>Respeito ao leitor: foco em leitura fluida e útil.</li>
+          <li>Contexto latino-americano com abertura ao público global.</li>
+        </ul>
+      </article>
+
+      <aside class="card col-5">
+        <h2>Transparência</h2>
+        <p class="muted">
+          O portal está em fase de construção. Alguns recursos são protótipos, mas a direção é clara:
+          organizar conteúdo com boa experiência e qualidade editorial.
+        </p>
+
+        <div class="callout">
+          <p><strong>Sobre autoria</strong></p>
+          <p class="small">
+            Atlas Nexo é uma iniciativa educacional independente em formação. Estrutura jurídica e equipe podem evoluir,
+            mas o compromisso editorial permanece.
+          </p>
+        </div>
+
+        <div class="hr"></div>
+
+        <p><strong>Links úteis</strong></p>
+        <p class="small">
+          <a href="nexo_planos_v3_apoio_global.html">Planos</a><br />
+          <a href="atlas_nexo_artigos_index.html">Todos os Artigos</a><br />
+          <a href="nexo_trilhas_estudo.html">Trilhas de Estudo</a>
+        </p>
+      </aside>
+
+      <section class="card col-12" id="contato">
+        <h2>Contato institucional</h2>
+        <p class="muted">
+          Se você é educador, pesquisador ou instituição e deseja contribuir, entre em contato.
+        </p>
+
+        <div class="callout">
+          <p class="small">
+            Sugestão: quando você tiver um e-mail oficial, coloque aqui (ex: contato@atlasnexo.org).
+          </p>
+          <p class="small">
+            Enquanto isso, você pode usar um formulário (futuramente) ou um e-mail provisório.
+          </p>
+        </div>
+
+        <div class="hr"></div>
+
+        <a class="btn" href="index.html">Voltar para a Home</a>
+      </section>
+    </section>
+
+    <div class="footer">
+      <div><strong>Atlas Nexo</strong> — Ciência e Educação.</div>
+      <div style="margin-top:6px;">Última atualização: versão estática para lançamento.</div>
+    </div>
+  </main>
+</body>
+</html>
+
