@@ -1,179 +1,321 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Atlas Nexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Institucional • Atlas Nexo</title>
+  <meta name="description" content="Conheça o Atlas Nexo: missão, visão, princípios editoriais e natureza do projeto educacional e científico." />
 
   <style>
-    body {
-      margin: 0;
+    :root{
+      --bg:#f9fbfa;
+      --ink:#1a1a1a;
+      --muted:#4c5a55;
+      --brand:#0f3d2e;
+      --brand2:#1f6f54;
+      --line:#e6e6e6;
+      --card:#ffffff;
+      --shadow: 0 6px 20px rgba(0,0,0,0.06);
+      --radius: 12px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; }
+
+    body{
+      margin:0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f9fbfa;
-      color: #1a1a1a;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
     }
 
-    header {
-      background: linear-gradient(135deg, #0f3d2e, #1f6f54);
-      color: white;
-      padding: 80px 20px;
-      text-align: center;
+    header{
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#fff;
+      padding: 64px 20px 34px;
+      text-align:center;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    header h1{
+      margin:0 0 10px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    header p{
+      margin:0 auto;
+      max-width: 760px;
+      opacity: .95;
+      font-size: 1.05rem;
+    }
+
+    nav{
+      background:#fff;
+      border-bottom:1px solid var(--line);
+      padding: 14px 16px;
+      text-align:center;
+    }
+
+    nav a{
+      display:inline-block;
+      margin: 6px 10px;
+      text-decoration:none;
+      color: var(--brand);
+      font-weight: 550;
+    }
+
+    nav a.active{
+      color:#0b2d22;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+    }
+
+    .crumbs{
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.9);
+      font-size: .95rem;
+    }
+
+    .lead{
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .section{
+      margin-top: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .section h2{
+      margin: 0 0 10px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+
+    .section h3{
+      margin: 18px 0 8px;
+      font-weight: 600;
+      color: #163a2f;
+      font-size: 1.1rem;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      color: var(--ink);
+    }
+
+    li{ margin: 8px 0; }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .callout{
+      border-left: 4px solid var(--brand2);
+      background: #f3faf6;
+      padding: 14px 14px;
+      border-radius: 10px;
+      color: #123528;
+    }
+
+    .fine{
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .btnrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--brand);
+      text-decoration:none;
       font-weight: 600;
     }
 
-    header p {
-      font-size: 1.2rem;
-      max-width: 720px;
-      margin: 0 auto;
-      opacity: 0.95;
+    .btn.primary{
+      background: #0b2d22;
+      border-color:#0b2d22;
+      color:#fff;
     }
 
-    nav {
-      background: #ffffff;
-      border-bottom: 1px solid #e6e6e6;
-      padding: 14px 20px;
-      text-align: center;
+    footer{
+      margin-top: 30px;
+      text-align:center;
+      color: #fff;
+      background: var(--brand);
+      padding: 34px 20px;
     }
 
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #0f3d2e;
-      font-weight: 500;
-    }
-
-    section {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      font-weight: 500;
-      color: #0f3d2e;
-    }
-
-    section p {
-      font-size: 1.05rem;
-      margin-bottom: 16px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      padding: 24px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #1f6f54;
-      font-weight: 500;
-    }
-
-    footer {
-      background: #0f3d2e;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    footer p {
-      opacity: 0.85;
+    footer p{
       margin: 6px 0;
+      opacity: .9;
+      font-size: .95rem;
+    }
+
+    code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: .95em;
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <h1>Atlas Nexo</h1>
-    <p>Onde o conhecimento se conecta.  
-       Educação, ciência e cultura integradas para o presente e o futuro.</p>
+    <h1>Institucional</h1>
+    <p>Conheça a natureza do Atlas Nexo, seus princípios e a visão que orienta o portal.</p>
+    <div class="crumbs">Atlas Nexo • Onde o conhecimento se conecta</div>
   </header>
 
   <nav>
-    <a href="#">Início</a>
-    <a href="#">Ciência</a>
-    <a href="#">Educação</a>
-    <a href="#">Idiomas</a>
-    <a href="#">Artigos</a>
-    <a href="#">Institucional</a>
+    <a href="index.html">Início</a>
+    <a href="#" title="Página futura">Ciência</a>
+    <a href="#" title="Página futura">Educação</a>
+    <a href="#" title="Página futura">Idiomas</a>
+    <a href="#" title="Página futura">Artigos</a>
+    <a class="active" href="institucional.html">Institucional</a>
   </nav>
 
-  <section>
-    <h2>O que é o Atlas Nexo?</h2>
-    <p>
-      O Atlas Nexo é uma iniciativa educacional e científica nascida na América Latina,
-      com vocação global. O portal integra conhecimento acadêmico, educação básica,
-      formação continuada, idiomas, ciência e cultura em um único ecossistema.
+  <main>
+    <p class="lead">
+      O <strong>Atlas Nexo</strong> é uma iniciativa educacional e científica independente, nascida na América Latina,
+      com vocação global. Nosso objetivo é organizar o conhecimento de forma clara, confiável e acessível,
+      preservando contexto histórico, cultural e social.
     </p>
-    <p>
-      Nosso objetivo é tornar o acesso ao conhecimento mais organizado, humano
-      e conectado com os desafios reais da sociedade.
-    </p>
-  </section>
 
-  <section>
-    <h2>Áreas do Portal</h2>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Ciência</h3>
-        <p>Artigos científicos, conteúdos editoriais, divulgação científica e biblioteca temática com foco na América Latina.</p>
+    <section class="section" id="identidade">
+      <h2>Identidade e natureza do projeto</h2>
+      <div class="grid">
+        <div>
+          <h3>O que o Atlas Nexo é</h3>
+          <ul>
+            <li>Um portal digital de ciência, educação, idiomas e cultura.</li>
+            <li>Uma plataforma em construção contínua, com foco em utilidade pública e impacto educativo.</li>
+            <li>Um espaço editorial que valoriza rigor, clareza e responsabilidade.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>O que o Atlas Nexo não é</h3>
+          <ul>
+            <li>Uma rede de boatos, sensacionalismo ou conteúdo sem fonte.</li>
+            <li>Um site de publicidade invasiva ou captura de atenção a qualquer custo.</li>
+            <li>Uma competição de “quem sabe mais”, e sim um caminho de aprendizado.</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Educação</h3>
-        <p>Conteúdos do ensino fundamental ao avançado, simulados, banco de questões e trilhas de estudo.</p>
+      <div class="callout" style="margin-top:14px">
+        <strong>Nota de transparência:</strong> esta é uma versão pública inicial. Recursos avançados (contas, pagamentos,
+        publicação verificada, banco de dados) serão adicionados por etapas.
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Idiomas</h3>
-        <p>Inglês, espanhol, mandarim e outros idiomas com aulas, exercícios e avaliações progressivas.</p>
+    <section class="section" id="missao-visao">
+      <h2>Missão, visão e valores</h2>
+
+      <h3>Missão</h3>
+      <p>
+        Conectar conhecimento confiável a pessoas reais, reduzindo barreiras entre ciência, educação e sociedade,
+        com atenção especial à América Latina.
+      </p>
+
+      <h3>Visão</h3>
+      <p>
+        Tornar-se uma referência mundial em organização do conhecimento com identidade latino-americana,
+        oferecendo conteúdo claro, útil e responsável para diversos níveis de aprendizagem.
+      </p>
+
+      <h3>Valores</h3>
+      <ul>
+        <li><strong>Rigor e clareza:</strong> linguagem acessível sem abandonar precisão.</li>
+        <li><strong>Responsabilidade:</strong> evitar conclusões apressadas, exageros e promessas falsas.</li>
+        <li><strong>Educação como bem coletivo:</strong> aprender e ensinar como atos de futuro.</li>
+        <li><strong>Contexto latino-americano:</strong> ciência e cultura conectadas ao território e às pessoas.</li>
+      </ul>
+    </section>
+
+    <section class="section" id="editorial">
+      <h2>Princípios editoriais</h2>
+      <p>
+        O Atlas Nexo busca equilibrar um tom <strong>científico</strong> e <strong>jornalístico</strong>, priorizando:
+      </p>
+      <ul>
+        <li>Fontes públicas confiáveis sempre que possível.</li>
+        <li>Separação entre fatos, hipóteses e opinião.</li>
+        <li>Correções claras quando necessário.</li>
+        <li>Conteúdo com propósito educativo, não apenas informativo.</li>
+      </ul>
+
+      <h3>Conteúdos enviados por usuários</h3>
+      <p class="fine">
+        Quando a funcionalidade de envio de artigos estiver ativa, o portal poderá oferecer trilhas de revisão e verificação,
+        com publicação condicionada a critérios transparentes.
+      </p>
+    </section>
+
+    <section class="section" id="acesso">
+      <h2>Acesso, planos e sustentabilidade</h2>
+      <p>
+        O Atlas Nexo é aberto ao público. Alguns recursos avançados poderão ser opcionais para sustentar a manutenção
+        e evolução da plataforma, sem comprometer o acesso ao conteúdo essencial.
+      </p>
+      <ul>
+        <li>Conteúdo e navegação: foco em acesso simples e rápido.</li>
+        <li>Ferramentas avançadas: recursos por plano, quando implementados.</li>
+        <li>Transparência: comunicação clara sobre o que é gratuito e o que é opcional.</li>
+      </ul>
+
+      <div class="btnrow">
+        <a class="btn primary" href="index.html">Voltar para a Home</a>
+        <a class="btn" href="#" title="Página futura">Conhecer os Planos</a>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Música e Cultura</h3>
-        <p>Aulas musicais, quizzes avaliativos, recursos interativos e apoio a educadores.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Uma visão de longo prazo</h2>
-    <p>
-      O Atlas Nexo está em construção contínua. A plataforma foi pensada para crescer
-      de forma ética, sustentável e colaborativa, valorizando educadores,
-      pesquisadores e estudantes.
-    </p>
-    <p>
-      O conhecimento não deve ser fragmentado. Ele deve se conectar.
-    </p>
-  </section>
+    <section class="section" id="contato">
+      <h2>Contato e parcerias</h2>
+      <p>
+        Se você é educador, pesquisador ou instituição e deseja contribuir com o Atlas Nexo,
+        a fase inicial prioriza parcerias que aumentem impacto educacional e qualidade editorial.
+      </p>
+      <p class="fine">
+        Sugestão: quando você quiser, podemos adicionar um formulário de contato e um e-mail institucional.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    <p>Atlas Nexo © 2026</p>
-    <p>Iniciativa educacional independente</p>
+    <p><strong>Atlas Nexo</strong> © 2026</p>
+    <p>Iniciativa educacional e científica independente</p>
     <p>Ciência • Educação • Cultura</p>
   </footer>
-
 </body>
 </html>
